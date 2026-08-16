@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  function signedIn(){return request.auth != null;}
+  function admin(){return signedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));}
+  match /complaints/{id} {
+   allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+   allow read: if signedIn() && (resource.data.userId == request.auth.uid || admin());
+   allow update, delete: if admin();
+  }
+  match /users/{uid} { allow create, update: if signedIn() && request.auth.uid == uid; allow read: if signedIn() && (request.auth.uid == uid || admin()); }
+  match /admins/{uid} { allow read: if signedIn() && (request.auth.uid == uid || admin()); allow write: if false; }
+ }
+}

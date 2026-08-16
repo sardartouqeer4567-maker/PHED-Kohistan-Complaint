@@ -1,0 +1,7 @@
+rules_version = '2';
+service firebase.storage {
+ match /b/{bucket}/o { match /complaints/{uid}/{file} {
+  allow write: if request.auth != null && request.auth.uid == uid && request.resource.size < 10 * 1024 * 1024;
+  allow read: if request.auth != null && (request.auth.uid == uid || firestore.get(/databases/(default)/documents/admins/$(request.auth.uid)).data != null);
+ }}
+}
