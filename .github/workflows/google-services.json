@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "629115916391",
+    "project_id": "phed-kohistan-c2407",
+    "storage_bucket": "phed-kohistan-c2407.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629115916391:android:7ef9d9f16bd110ac9544c2",
+        "android_client_info": {
+          "package_name": "pk.gov.kp.phed.kohistan.complaints"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIj2k_K2Q5mEKfpWlTrulSKbOUYoe5ulI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
